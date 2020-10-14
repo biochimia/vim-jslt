@@ -34,7 +34,7 @@ syn match   jsltFnIdentifier      contained /\%(\w\|-\)\+/ nextgroup=jsltFnParam
 syn region  jsltFnParams          contained matchgroup=_jsltFnParams start=/(/ end=/)/ contains=jsltIdentifierList,jsltErrBadIdentifier nextgroup=jsltLet,@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 
 syn keyword jsltLet                         let nextgroup=jsltLetIdentifier,jsltErrBadIdentifier skipwhite skipempty
-syn match   jsltLetIdentifier     contained "\%(\w\|-\)\+" nextgroup=jsltAssignOp skipwhite skipempty
+syn match   jsltLetIdentifier     contained "\%(\w\|-\)\+" nextgroup=jsltAssignOp,jsltErrExpectAssign skipwhite skipempty
 
 syn region  jsltParens                      matchgroup=_jsltParens start=/(/ end=/)/ contains=@jsltExpression
 syn match   jsltIdentifier        contained /\%(\w\|-\)\+/

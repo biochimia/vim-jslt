@@ -43,7 +43,7 @@ syn match   jsltIdentifierList    contained /\%(\w\|-\)\+/ nextgroup=jsltIdentif
 syn match   jsltIdentifierComma   contained /,/ nextgroup=jsltIdentifierList,jsltErrBadIdentifier skipwhite skipempty
 
 syn match   jsltFunctionCall                /\%(\w\|-\)\+\%(:\%(\w\|-\)\+\)\?/ nextgroup=jsltFnArgs skipwhite skipempty
-syn region  jsltFnArgs            contained matchgroup=_jsltFnArgs start=/(/ end=/)/ contains=jsltComma,@jsltExpression nextgroup=@jsltChainLink skipwhite skipempty
+syn region  jsltFnArgs            contained matchgroup=_jsltFnArgs start=/(/ end=/)/ contains=jsltComma,@jsltExpression nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
 syn keyword jsltIf                          if nextgroup=jsltIfCondition,jsltErrExpectParens skipwhite skipempty
 syn region  jsltIfCondition       contained matchgroup=_jsltIfCondition start=/(/ end=/)/ contains=jsltLet,@jsltExpression,jsltErrExpectExpr nextgroup=jsltLet,@jsltExpression skipwhite skipempty
@@ -53,7 +53,7 @@ syn region  jsltArray                       matchgroup=_jsltArray start=/\[/ end
 syn keyword jsltArrayFor          contained for nextgroup=jsltArrayLoopCond,jsltErrExpectParens skipwhite skipempty
 syn region  jsltArrayLoopCond     contained matchgroup=_jsltArrayLoopCond start=/(/ end=/)/ contains=@jsltExpression nextgroup=jsltLet,@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 
-syn region  jsltArraySlice        contained matchgroup=_jsltArraySlice start=/\[/ end=/\]/ contains=@jsltExpression nextgroup=@jsltChainLink skipwhite skipempty
+syn region  jsltArraySlice        contained matchgroup=_jsltArraySlice start=/\[/ end=/\]/ contains=@jsltExpression nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
 syn region  jsltObject                      matchgroup=_jsltObject start=/{/ end=/}/ contains=jsltComma,jsltLet,@jsltExpression,jsltObjectFor skipwhite skipempty
 syn keyword jsltObjectFor         contained for nextgroup=jsltObjectLoopCond,jsltErrExpectParens skipwhite skipempty
@@ -67,11 +67,11 @@ syn match   jsltPipeOp            contained /|/ nextgroup=@jsltExpression,jsltEr
 syn keyword jsltLogicalOp         contained and or nextgroup=@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 
 syn match   jsltVarReference                /\$/ nextgroup=jsltVarIdentifier,jsltErrBadIdentifier
-syn match   jsltVarIdentifier     contained /\%(\w\|-\)\+/ nextgroup=@jsltChainLink skipwhite skipempty
+syn match   jsltVarIdentifier     contained /\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
 syn match   jsltDot                         /\./
-syn match   jsltDotIdentifier     contained /\.\%(\w\|-\)\+/ nextgroup=@jsltChainLink skipwhite skipempty
-syn region  jsltDotString         contained start=/\."/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink skipwhite skipempty
+syn match   jsltDotIdentifier     contained /\.\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
+syn region  jsltDotString         contained start=/\."/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
 syn keyword jsltNull                        null
 syn keyword jsltBoolean                     false true

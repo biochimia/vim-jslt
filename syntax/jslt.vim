@@ -46,7 +46,7 @@ syn match   jsltFunctionCall                /\%(\w\|-\)\+\%(:\%(\w\|-\)\+\)\?/ n
 syn region  jsltFnArgs            contained matchgroup=_jsltFnArgs start=/(/ end=/)/ contains=jsltComma,@jsltExpression nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
 syn keyword jsltIf                          if nextgroup=jsltIfCondition,jsltErrExpectParens skipwhite skipempty
-syn region  jsltIfCondition       contained matchgroup=_jsltIfCondition start=/(/ end=/)/ contains=jsltLet,@jsltExpression,jsltErrExpectExpr nextgroup=jsltLet,@jsltExpression skipwhite skipempty
+syn region  jsltIfCondition       contained matchgroup=_jsltIfCondition start=/(/ end=/)/ contains=jsltLet,@jsltExpression,jsltErrExpectExpr nextgroup=jsltLet,@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 syn keyword jsltElse                        else nextgroup=jsltLet,@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 
 syn region  jsltArray                       matchgroup=_jsltArray start=/\[/ end=/\]/ contains=jsltComma,@jsltExpression,jsltArrayFor skipwhite skipempty
@@ -90,7 +90,7 @@ syn match   jsltErrBadIdentifier  contained /\%(\_s\|[0-9A-Za-z_-]\)\@![^()]*/
 syn match   jsltErrExpectAs       contained /\%(\_s\|as\>\)\@![^()]*/
 syn match   jsltErrExpectAssign   contained /\%(\_s\|=\)\@![^()]*/
 syn match   jsltErrExpectComma    contained /\%(\_s\|,\)\@![^()]*/
-syn match   jsltErrExpectExpr     contained /\%(\_s\|[$(.[{0-9A-Za-z_-]\)\@![^()]*/
+syn match   jsltErrExpectExpr     contained /\%(\_s\|["$(.\[{0-9A-Za-z_-]\)\@![^()]*/
 syn match   jsltErrExpectParens   contained /\%(\_s\|(\)\@![^()]*/
 syn match   jsltErrExpectQuote    contained /\%(\_s\|"\)\@![^()]*/
 
@@ -136,6 +136,7 @@ hi def link jsltErrBadIdentifier  Error
 hi def link jsltErrExpectAs       Error
 hi def link jsltErrExpectAssign   Error
 hi def link jsltErrExpectComma    Error
+hi def link jsltErrExpectExpr     Error
 hi def link jsltErrExpectParens   Error
 hi def link jsltErrExpectQuote    Error
 hi def link jsltErrMismatchPunct  Error

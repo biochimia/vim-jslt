@@ -53,7 +53,7 @@ syn region  jsltArray                       matchgroup=_jsltArray start=/\[/ end
 syn keyword jsltArrayFor          contained for nextgroup=jsltArrayLoopCond,jsltErrExpectParens skipwhite skipempty
 syn region  jsltArrayLoopCond     contained matchgroup=_jsltArrayLoopCond start=/(/ end=/)/ contains=@jsltExpression nextgroup=jsltLet,@jsltExpression,jsltErrExpectExpr skipwhite skipempty
 
-syn region  jsltArraySlice        contained matchgroup=_jsltArraySlice start=/\[/ end=/\]/ contains=@jsltExpression nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
+syn region  jsltArraySlice        contained matchgroup=_jsltArraySlice start=/\[/ end=/\]/ contains=@jsltExpression nextgroup=@jsltChainLink,@jsltOperator skipwhite skipempty
 
 syn region  jsltObject                      matchgroup=_jsltObject start=/{/ end=/}/ contains=jsltComma,jsltLet,@jsltExpression,jsltObjectFor skipwhite skipempty
 syn keyword jsltObjectFor         contained for nextgroup=jsltObjectLoopCond,jsltErrExpectParens skipwhite skipempty

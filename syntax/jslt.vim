@@ -21,7 +21,7 @@ syn cluster jsltReference contains=jsltVarReference,jsltDot,jsltDotIdentifier,js
 syn cluster jsltValue contains=jsltNull,jsltBoolean,jsltNumber,jsltString
 syn cluster jsltOperator contains=jsltAssignOp,jsltCompareOp,jsltArithmeticOp,jsltLogicalOp,jsltColonOp,jsltPipeOp
 
-syn match   jsltErrMismatchPunct            /[$),.\]}]/
+syn match   jsltErrMismatchPunct            /[$).\]}]/
 
 syn match   jsltComma             contained ','
 

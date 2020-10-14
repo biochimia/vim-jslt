@@ -79,7 +79,6 @@ syn match   jsltNumber                      /\<-\?\%(0\|[1-9]\d*\)\%(\.\d\+\)\?\
 syn region  jsltString                      start=/"/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink,@jsltOperator skipwhite skipempty
 syn match   jsltStringEscape      contained /\\"\|\\\\/
 
-" TODO: Object reference
 " TODO: Object matcher
 
 syn keyword jsltTodo              contained FIXME NOTE TBD TODO XXX

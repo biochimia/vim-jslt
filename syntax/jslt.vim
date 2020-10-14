@@ -19,7 +19,7 @@ syn cluster jsltExpression contains=jsltComment,jsltParens,jsltArray,jsltObject,
 syn cluster jsltChainLink contains=jsltDotKey,jsltArraySlice
 syn cluster jsltReference contains=jsltVarReference,jsltDot,jsltDotKey
 syn cluster jsltValue contains=jsltNull,jsltBoolean,jsltNumber,jsltString
-syn cluster jsltOperator contains=jsltAssignOp,jsltCompareOp,jsltArithmeticOp,jsltLogicalOp,jsltColonOp,jsltPipeOp
+syn cluster jsltOperator contains=jsltAssignOp,jsltCompareOp,jsltArithmeticOp,jsltLogicalOp,jsltColonOp,jsltPipeOp,jsltIf
 
 syn match   jsltErrMismatchPunct            /[$).\]}]/
 

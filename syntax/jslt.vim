@@ -16,8 +16,8 @@ syn iskeyword @,$,-,_,48-57,192-255
 
 syn cluster jsltTop contains=jsltComment,jsltImport,jsltFunction,jsltLet,@jsltExpression
 syn cluster jsltExpression contains=jsltComment,jsltParens,jsltArray,jsltObject,@jsltValue,@jsltReference,jsltFunctionCall,jsltIf,jsltElse,@jsltOperator,jsltErrMismatchPunct
-syn cluster jsltChainLink contains=jsltDotIdentifier,jsltDotString,jsltArraySlice
-syn cluster jsltReference contains=jsltVarReference,jsltDot,jsltDotIdentifier,jsltDotString
+syn cluster jsltChainLink contains=jsltDotKey,jsltArraySlice
+syn cluster jsltReference contains=jsltVarReference,jsltDot,jsltDotKey
 syn cluster jsltValue contains=jsltNull,jsltBoolean,jsltNumber,jsltString
 syn cluster jsltOperator contains=jsltAssignOp,jsltCompareOp,jsltArithmeticOp,jsltLogicalOp,jsltColonOp,jsltPipeOp
 
@@ -69,9 +69,9 @@ syn keyword jsltLogicalOp         contained and or nextgroup=@jsltExpression,jsl
 syn match   jsltVarReference                /\$/ nextgroup=jsltVarIdentifier,jsltErrBadIdentifier
 syn match   jsltVarIdentifier     contained /\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
-syn match   jsltDot                         /\./
-syn match   jsltDotIdentifier     contained /\.\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
-syn region  jsltDotString         contained start=/\."/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
+syn match   jsltDotKey            contained /\./ nextgroup=jsltString,jsltDotIdentifier skipwhite skipempty
+syn match   jsltDotIdentifier     contained /\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltOperator skipwhite skipempty
+syn match   jsltDot                         /\./ nextgroup=jsltString,jsltDotIdentifier,jsltArraySlice,@jsltOperator skipwhite skipempty
 
 syn keyword jsltNull                        null nextgroup=@jsltOperator skipwhite skipempty
 syn keyword jsltBoolean                     false true nextgroup=@jsltOperator skipwhite skipempty

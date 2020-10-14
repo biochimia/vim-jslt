@@ -73,10 +73,10 @@ syn match   jsltDot                         /\./
 syn match   jsltDotIdentifier     contained /\.\%(\w\|-\)\+/ nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 syn region  jsltDotString         contained start=/\."/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink,@jsltExpression skipwhite skipempty
 
-syn keyword jsltNull                        null
-syn keyword jsltBoolean                     false true
-syn match   jsltNumber                      /\<-\?\%(0\|[1-9]\d*\)\%(\.\d\+\)\?\%([Ee][+-]\?\d\+\)\?\>/
-syn region  jsltString                      start=/"/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape
+syn keyword jsltNull                        null nextgroup=@jsltOperator skipwhite skipempty
+syn keyword jsltBoolean                     false true nextgroup=@jsltOperator skipwhite skipempty
+syn match   jsltNumber                      /\<-\?\%(0\|[1-9]\d*\)\%(\.\d\+\)\?\%([Ee][+-]\?\d\+\)\?\>/ nextgroup=@jsltOperator skipwhite skipempty
+syn region  jsltString                      start=/"/ skip=/\\\"\|\\\\/ end=/"/ contains=jsltStringEscape,jsltErrBadEscape nextgroup=@jsltChainLink,@jsltOperator skipwhite skipempty
 syn match   jsltStringEscape      contained /\\"\|\\\\/
 
 " TODO: Object reference

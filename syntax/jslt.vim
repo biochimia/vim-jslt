@@ -109,9 +109,9 @@ hi def link jsltFunction          Statement
 hi def link jsltFnIdentifier      Function
 
 hi def link jsltLet               Statement
-hi def link jsltLetIdentifier     Function
+hi def link jsltLetIdentifier     Identifier
 
-hi def link jsltIdentifier        Function
+hi def link jsltIdentifier        Identifier
 hi def link jsltVarReference      Function
 hi def link jsltVarIdentifier     Function
 

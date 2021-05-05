@@ -60,7 +60,7 @@ syn keyword jsltObjectFor               contained for nextgroup=jsltObjectLoopCo
 syn region  jsltObjectLoopCond          contained matchgroup=_jsltObjectLoopCond start=/(/ end=/)/ contains=@jsltExpression,jsltExpressionComment nextgroup=jsltLet,@jsltExpression,jsltLetExpressionComment,jsltErrExpectExpr skipwhite skipempty
 
 syn match   jsltAssignOp                contained /=/ nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty
-syn match   jsltCompareOp               contained /\%(!=\|<\|<=\|==\|>\|>=\)/ nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty
+syn match   jsltCompareOp               contained /\%(!=\|<=\|<\|==\|>=\|>\)/ nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty
 syn match   jsltArithmeticOp            contained "\%(+\|-\|\*\|/\%(/\)\@!\)" nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty
 syn match   jsltColonOp                 contained /:/ nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty
 syn match   jsltPipeOp                  contained /|/ nextgroup=@jsltExpression,jsltExpressionComment,jsltErrExpectExpr skipwhite skipempty

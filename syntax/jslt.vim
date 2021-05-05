@@ -31,7 +31,7 @@ syn match   jsltIdentifier              contained /\%(\w\|-\)\+/
 syn match   jsltIdentifierList          contained /\%(\w\|-\)\+/ nextgroup=jsltIdentifierComma,jsltIdentifierListComment,jsltErrExpectComma skipwhite skipempty
 syn match   jsltIdentifierComma         contained /,/ nextgroup=jsltIdentifierList,jsltIdentifierCommaComment,jsltErrBadIdentifier skipwhite skipempty
 
-syn match   jsltFunctionCall                      /\%(\w\|-\)\+\%(:\%(\w\|-\)\+\)\?/ nextgroup=jsltFnArgs,jsltFunctionCallComment skipwhite skipempty
+syn match   jsltFunctionCall                      /\%(\<\%(and\|as\|def\|else\|false\|for\|if\|import\|let\|null\|or\|true\)\>\)\@!\%(\w\|-\)\+\%(:\%(\w\|-\)\+\)\?/ nextgroup=jsltFnArgs,jsltFunctionCallComment skipwhite skipempty
 syn region  jsltFnArgs                  contained matchgroup=_jsltFnArgs start=/(/ end=/)/ contains=jsltComma,@jsltExpression,jsltCommaExprComment nextgroup=@jsltChainLink,@jsltExpression,jsltChainLinkExprComment skipwhite skipempty
 
 syn region  jsltArray                             matchgroup=_jsltArray start=/\[/ end=/\]/ contains=jsltComma,@jsltExpression,jsltArrayFor,jsltArrayComment skipwhite skipempty

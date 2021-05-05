@@ -12,7 +12,7 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 syn case match
-syn iskeyword @,$,-,_,48-57,192-255
+syn iskeyword @,-,_,48-57,192-255
 
 syn cluster jsltTop contains=jsltLineComment,jsltImport,jsltFunction,jsltLet,@jsltExpression
 syn cluster jsltExpression contains=jsltParens,jsltArray,jsltObject,@jsltValue,@jsltReference,jsltFunctionCall,jsltIf,jsltElse,@jsltOperator,jsltErrMismatchPunct

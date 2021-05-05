@@ -2,10 +2,10 @@
 " Language: JSLT
 " Maintainer: João Abecasis <joao@abecasis.name>
 " URL: https://github.com/schibsted/jslt
-" Latest Revision: 13 October 2020
+" Latest Revision: 5 May 2021
 
 setlocal suffixesadd=.jslt
-setlocal iskeyword=@,$,-,_,48-57,192-255
+setlocal iskeyword=@,-,_,48-57,192-255
 setlocal include="^\s*import\>"
 setlocal comments=://
 setlocal commentstring=//\ %s
